@@ -73,6 +73,7 @@ class ReportModel:
         except json.JSONDecodeError as e:
             raise ValueError(f"設定ファイルのJSON形式が不正です: {e}")
 
+        # basic_infoとhistoryがそれぞれ存在するか確認し、存在しない場合は空の辞書を設定
         if "basic_info" not in self._status:
             self._status["basic_info"] = {}
         if "history" not in self._status:
